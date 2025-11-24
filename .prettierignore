@@ -1,0 +1,21 @@
+node_modules
+.next
+out
+build
+dist
+
+# ignore git stuff
+.git
+.gitignore
+
+# env
+.env
+.env*.local
+
+# dependency related
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Optional: Next.js type file
+next-env.d.ts
