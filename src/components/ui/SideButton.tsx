@@ -2,18 +2,17 @@
 
 import React from "react";
 
-type SideButtonProps = {
+type SideButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   icon?: React.ReactNode;
   children: React.ReactNode;
-  onClick?: () => void;
 };
 
-const SideButton: React.FC<SideButtonProps> = ({ icon, children, onClick }) => {
+const SideButton: React.FC<SideButtonProps> = ({ icon, children, ...props }) => {
   return (
     <div>
       <button
         className="flex items-center inline-block border border-gray-300 w-full md:w-full h-[48px] px-5 "
-        onClick={onClick}
+        {...props}
       >
         <div>{icon}</div>
         <span className="text-[16px] text-center ml-0 md:ml-[8px] hidden md:inline">
