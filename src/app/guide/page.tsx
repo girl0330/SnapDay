@@ -1,6 +1,6 @@
 "use client";
 
-import ModalButton from "@/components/common/ModalButton";
+import ModalButton from "@/components/ui/ModalButton";
 import SideButton from "@/components/ui/SideButton";
 import Image from "next/image";
 import React from "react";
