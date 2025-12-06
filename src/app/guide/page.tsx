@@ -1,11 +1,19 @@
 "use client";
 
+import Dropdown from "@/components/ui/Dropdown";
 import ModalButton from "@/components/ui/ModalButton";
 import SideButton from "@/components/ui/SideButton";
 import Image from "next/image";
-import React from "react";
+import React, { useState } from "react";
 
-const page = () => {
+const Page = () => {
+  const [openDropdown, setOpenDropdown] = useState(false);
+
+  const openModel = () => {
+    setOpenDropdown((prev) => !prev);
+    console.log(openDropdown);
+  };
+
   return (
     <div className="flex">
       <aside className="w-[64px] md:w-[192px] min-h-screen bg-white border-r ">
@@ -27,22 +35,16 @@ const page = () => {
         </SideButton>
         <SideButton
           icon={<Image src="active.svg" width={24} height={24} alt="home icon" />}
-          onClick={() => {
-            console.log("사이드 버튼3 클릭함!");
-          }}
+          onClick={openModel}
         >
           사이드 버튼3
         </SideButton>
+        <Dropdown open={openDropdown} onClose={() => setOpenDropdown(false)} />
       </aside>
-      <ModalButton
-        onClick={() => {
-          console.log("모달 버튼 클릭함!");
-        }}
-      >
-        모달 버튼
-      </ModalButton>
+      <ModalButton onClick={openModel}>모달 버튼</ModalButton>
+      <Dropdown open={openDropdown} onClose={() => setOpenDropdown(false)} />
     </div>
   );
 };
 
-export default page;
+export default Page;
